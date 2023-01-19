@@ -1,3 +1,28 @@
-$red-color : red;
 $box-shadow :20px 20px 80px #bebebe,
 -20px -20px 80px #ffffff;
+$blue-color: #2f82ff;
+$grey-color: #f8f8f8;
+.btn_primary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: $blue-color;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 2px;
+}
+.btn_outlined{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: $blue-color;
+    background:$grey-color;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 2px;
+}
