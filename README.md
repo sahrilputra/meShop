@@ -2,8 +2,6 @@ Personal Project Build E-commarce online with fullstack MERN
 including so many technology to build E-commarce website with full of fitur, authentication, displaying product, Promo, etc... 
 prefend to build with NextJs for framework and MonggoDb for database
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
