@@ -1,7 +1,12 @@
-
+import { Header } from "../components/header"
+import { Footer } from "../components/footer"
 const signin = () => {
   return (
-    <div>signin</div>
+    <>
+    {/* <Header /> */}
+    <div>Singin On Develop</div>
+    <Footer/>
+    </>
   )
 }
 
