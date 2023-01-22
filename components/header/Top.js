@@ -5,8 +5,10 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { RxCaretDown } from "react-icons/rx";
 import { useState } from 'react';
 import { UserMenu } from './UserMenu';
+import { useSession } from 'next-auth/react';
+
 export const Top = () => {
-    const [loggin, setLoggedin] = useState(true);
+    const { data: session } = useSession()
     const [visible, setVisible,] = useState(false);
     return (
         <div className={styles.top}>
@@ -32,13 +34,13 @@ export const Top = () => {
                         onMouseOver={() => setVisible(true)}
                         onMouseLeave={() => setVisible(false)}
                     >
-                        {loggin ? (
+                        {session ? (
                             <li className={styles.li}>
                                 <div className={styles.flex}>
                                     <img
-                                        src="https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png"
+                                        src={session.user.image}
                                         alt="Avatar" />
-                                    <span>Sahril</span>
+                                    <span>{session.user.name}</span>
                                     <RxCaretDown />
                                 </div>
                             </li>
@@ -51,7 +53,7 @@ export const Top = () => {
                             </li>
                         )}
                         {
-                            visible && <UserMenu loggin={loggin} />
+                            visible && <UserMenu session={session} />
                         }
                     </li>
                 </ul>
