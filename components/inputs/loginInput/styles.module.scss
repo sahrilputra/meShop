@@ -29,6 +29,19 @@
             color: #aaa;
             font-weight: 500;
         }
-
+    }
+}
+.error{
+    background: $light-error-color !important;
+    margin-top: 5rem !important;
+    input{
+        color: #fff !important;
+        &::placeholder{
+            color: #fff;
+        }
+    }
+    svg{
+        fill: #fff !important;
+        stroke: #fff ;
     }
 }

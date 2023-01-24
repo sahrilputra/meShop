@@ -4,8 +4,27 @@ import { Footer } from "../components/footer"
 import { IoArrowBackOutline } from "react-icons/io5";
 import Link from 'next/link';
 import { Form, Formik } from 'formik';
+import * as Yup from 'yup';
 import { LoginInput } from '../components/inputs/loginInput';
-const signin = () => {
+import { useState } from 'react';
+const initialValues = {
+  login_email: "",
+  login_password: "",
+};
+const Signin = () => {
+  const [user, setUser] = useState(initialValues);
+  const { login_email, login_password } = user;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  }
+  console.log(user);
+  const loginValidation = Yup.object({
+    login_email: Yup.string().
+    required("Email Required").
+    email('Enter a valid Email'),
+    login_password:Yup.string().required("Enter a password"),
+  })
   return (
     <>
       {/* <Header /> */}
@@ -22,11 +41,31 @@ const signin = () => {
           <div className={styles.login__form}>
             <h1>Sign in</h1>
             <p>Get access to the best E-commarce</p>
-            <Formik>
+            <Formik
+              enableReinitialize
+              initialValues={{
+                login_email,
+                login_password
+              }}
+              validationSchema={loginValidation}
+            >
               {
-                (form)=>(
+                (form) => (
                   <Form>
-                    <LoginInput icon="password" placeholder="email"/>
+                    <LoginInput
+                      type="text"
+                      name="login_email"
+                      icon="email"
+                      placeholder="Email"
+                      onChange={handleChange}
+                    />
+                    <LoginInput
+                      type="password"
+                      name="login_password"
+                      icon="password"
+                      placeholder="Password"
+                      onChange={handleChange}
+                    />
                   </Form>
                 )
               }
@@ -39,4 +78,4 @@ const signin = () => {
   )
 }
 
-export default signin
+export default Signin
