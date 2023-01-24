@@ -33,7 +33,7 @@ export default NextAuth({
     }),
   ],
   pages: {
-    // signIn: '/singin',
+    signIn: '/singin',
   },
   session: {
     strategy: 'jwt',
