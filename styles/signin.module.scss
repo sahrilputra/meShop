@@ -14,7 +14,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        max-width: 380px;
+        max-width: 300px;
         .back__svg{
             width: 40px;
             height: 40px;
@@ -36,7 +36,7 @@
             }
         }
         span{
-            padding-left: 10px;
+            // padding-left: 10px;
             font-weight: 600;
             font-size: 14px;
             a{
@@ -45,6 +45,19 @@
                 border-bottom: 1px solid $blue-color;
                 padding-bottom: 5px;
             }
+        }
+    }
+    &__form{
+        margin-top: 1rem;
+        h1{
+            font-size: 50px;
+            margin: 0;
+        }
+        p{
+            color: #96979b;
+        }
+        form{
+            margin-top: 2rem;
         }
     }
 }
