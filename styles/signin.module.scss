@@ -27,6 +27,7 @@
                 border-color: $blue-color;
                 svg{
                     fill: $blue-color;
+                    stroke: $blue-color;
                 }
             }
             svg{
@@ -58,6 +59,16 @@
         }
         form{
             margin-top: 2rem;
+        }
+        .forgot{
+            color: #666;
+            padding-top: 1rem;
+            font-size: 14px;
+            width: max-content;
+            &:hover{
+                color: $blue-color;
+                border-bottom: 1px solid $blue-color;
+            }
         }
     }
 }

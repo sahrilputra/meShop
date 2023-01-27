@@ -1,24 +1,25 @@
 import styles from '../styles/signin.module.scss';
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
+import { CircleIconBtn } from '../components/button/circleIconBtn';
 import { IoArrowBackOutline } from "react-icons/io5";
 import Link from 'next/link';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { LoginInput } from '../components/inputs/loginInput';
 import { useState } from 'react';
+import { getProviders } from "next-auth/react" 
 const initialValues = {
   login_email: "",
   login_password: "",
 };
-const Signin = () => {
+export default function Signin () {
   const [user, setUser] = useState(initialValues);
   const { login_email, login_password } = user;
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   }
-  console.log(user);
   const loginValidation = Yup.object({
     login_email: Yup.string().
     required("Email Required").
@@ -66,6 +67,10 @@ const Signin = () => {
                       placeholder="Password"
                       onChange={handleChange}
                     />
+                    <CircleIconBtn type="type" text="Sign in" />
+                    <div className={styles.forgot}>
+                      <Link href="/forget">Forgot Pasword ?</Link>
+                    </div>
                   </Form>
                 )
               }
@@ -73,9 +78,15 @@ const Signin = () => {
           </div>
         </div>
       </div>
+  
       <Footer />
     </>
   )
 }
 
-export default Signin
+export async function getServerSideProps(context){
+  const providers = Object.values(await getProviders());
+  return{
+    props: {providers},
+  };
+}
