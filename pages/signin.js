@@ -8,8 +8,9 @@ import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { LoginInput } from '../components/inputs/loginInput';
 import { useState } from 'react';
-import { getProviders } from 'next-auth/react';
+import { getProviders, signIn } from 'next-auth/react';
 import { Provider } from 'react-redux';
+
 
 const initialValues = {
   login_email: "",
@@ -92,7 +93,7 @@ export default function Signin ({providers}) {
                     <div key={provider.name}>
                       <button
                       className={styles.socials__btn}
-                      onClick={()=> Signin(provider.id)}
+                      onClick={()=> signIn(provider.id)}
                       >
                         <img src={`../../icons/${provider.name}.png`} alt="provider-logo" />
                         Signin with {provider.name}
