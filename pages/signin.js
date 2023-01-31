@@ -9,19 +9,23 @@ import * as Yup from 'yup';
 import { LoginInput } from '../components/inputs/loginInput';
 import { useState } from 'react';
 import { getProviders } from 'next-auth/react';
+import { Provider } from 'react-redux';
 
 const initialValues = {
   login_email: "",
   login_password: "",
 };
 
-export default function Signin () {
+export default function Signin ({providers}) {
+  console.log(providers);
   const [user, setUser] = useState(initialValues);
   const { login_email, login_password } = user;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   }
+
   const loginValidation = Yup.object({
     login_email: Yup.string().
     required("Email Required").
@@ -77,6 +81,28 @@ export default function Signin () {
                 )
               }
             </Formik>
+            <div className={styles.login__socials}>
+              <span className={styles.or}>Or Cntinue with</span>
+              <div className={styles.login__socials_wrap}>
+                {providers.map((provider)=> {
+                  if(provider.name == "Credentials"){
+                    return;
+                  }
+                  return(
+                    <div key={provider.name}>
+                      <button
+                      className={styles.socials__btn}
+                      onClick={()=> Signin(provider.id)}
+                      >
+                        <img src={`../../icons/${provider.name}.png`} alt="provider-logo" />
+                        Signin with {provider.name}
+                      </button>
+                    </div>
+                  );
+                })
+                }
+              </div>
+            </div>
           </div>
         </div>
       </div>
