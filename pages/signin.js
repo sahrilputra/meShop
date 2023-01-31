@@ -8,11 +8,13 @@ import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { LoginInput } from '../components/inputs/loginInput';
 import { useState } from 'react';
-import { getProviders } from "next-auth/react" 
+import { getProviders } from 'next-auth/react';
+
 const initialValues = {
   login_email: "",
   login_password: "",
 };
+
 export default function Signin () {
   const [user, setUser] = useState(initialValues);
   const { login_email, login_password } = user;
@@ -84,9 +86,12 @@ export default function Signin () {
   )
 }
 
-export async function getServerSideProps(context){
+export async function getServerSideProps(content){
   const providers = Object.values(await getProviders());
-  return{
-    props: {providers},
-  };
+  console.log(providers);
+  return { 
+    props : {
+      providers,
+    }
+  }
 }
