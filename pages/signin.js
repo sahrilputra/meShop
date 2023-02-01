@@ -59,7 +59,7 @@ export default function Signin({ providers }) {
     .max(36, "Password can't be more than 36 characters"),
     conf_password:Yup.string()
     .required("Confirm your password")
-    .oneOf([Yup.ref("Password")], "Password must match"),
+    .oneOf([Yup.ref("password")], "Password must match"),
 
   })
   return (
