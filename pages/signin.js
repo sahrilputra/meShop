@@ -15,23 +15,52 @@ import { Provider } from 'react-redux';
 const initialValues = {
   login_email: "",
   login_password: "",
+  name: "",
+  email: "",
+  password: "",
+  conf_password: "",
 };
 
-export default function Signin ({providers}) {
+export default function Signin({ providers }) {
   console.log(providers);
   const [user, setUser] = useState(initialValues);
-  const { login_email, login_password } = user;
+  const {
+    login_email, 
+    login_password, 
+    name,
+    email,
+    password,
+    conf_password, 
+  } = user;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   }
-
+//registerValidation
   const loginValidation = Yup.object({
     login_email: Yup.string().
-    required("Email Required").
-    email('Enter a valid Email'),
-    login_password:Yup.string().required("Enter a password"),
+      required("Email Required").
+      email('Enter a valid Email'),
+    login_password: Yup.string().required("Enter a password"),
+  })
+  const registerValidation = Yup.object({
+    name:Yup.string().
+    required("Input your name")
+    .min(2, "Name must be between 2 and 16 characters")
+    .max(16, "Name must be between 2 and 16 characters")
+    .matches(/^[aA-zZ]/, "Number and Special characters are not allowed"),
+    email: Yup.string()
+    .required("Input Your Email Address")
+    .email("Enter a valid email address."),
+    password: Yup.string()
+    .required("Enter a combination of at least six numbers, and mark (such as ! and &).")
+    .min(6, "Password must be at least 6 characters")
+    .max(36, "Password can't be more than 36 characters"),
+    conf_password:Yup.string()
+    .required("Confirm your password")
+    .oneOf([Yup.ref("Password")], "Password must match"),
+
   })
   return (
     <>
@@ -85,15 +114,15 @@ export default function Signin ({providers}) {
             <div className={styles.login__socials}>
               <span className={styles.or}>Or Cntinue with</span>
               <div className={styles.login__socials_wrap}>
-                {providers.map((provider)=> {
-                  if(provider.name == "Credentials"){
+                {providers.map((provider) => {
+                  if (provider.name == "Credentials") {
                     return;
                   }
-                  return(
+                  return (
                     <div key={provider.name}>
                       <button
-                      className={styles.socials__btn}
-                      onClick={()=> signIn(provider.id)}
+                        className={styles.socials__btn}
+                        onClick={() => signIn(provider.id)}
                       >
                         <img src={`../../icons/${provider.name}.png`} alt="provider-logo" />
                         Signin with {provider.name}
@@ -113,72 +142,63 @@ export default function Signin ({providers}) {
             <Formik
               enableReinitialize
               initialValues={{
-                login_email,
-                login_password
+                name,
+                email,
+                password,
+                conf_password,
               }}
-              validationSchema={loginValidation}
+              validationSchema={registerValidation}
             >
               {
                 (form) => (
                   <Form>
                     <LoginInput
                       type="text"
-                      name="login_email"
+                      name="name"
+                      icon="user"
+                      placeholder="Full Name"
+                      onChange={handleChange}
+                    />
+                    <LoginInput
+                      type="text"
+                      name="email"
                       icon="email"
-                      placeholder="Email"
+                      placeholder="Email Address"
                       onChange={handleChange}
                     />
                     <LoginInput
                       type="password"
-                      name="login_password"
+                      name="password"
                       icon="password"
                       placeholder="Password"
                       onChange={handleChange}
                     />
-                    <CircleIconBtn type="type" text="Sign in" />
-                    <div className={styles.forgot}>
-                      <Link href="/forget">Forgot Pasword ?</Link>
-                    </div>
+                    <LoginInput
+                      type="password"
+                      name="conf_password"
+                      icon="password"
+                      placeholder="Re-Type Password"
+                      onChange={handleChange}
+                    />
+                    <CircleIconBtn type="type" text="Sign up" />
                   </Form>
                 )
               }
             </Formik>
-            <div className={styles.login__socials}>
-              <span className={styles.or}>Or Cntinue with</span>
-              <div className={styles.login__socials_wrap}>
-                {providers.map((provider)=> {
-                  if(provider.name == "Credentials"){
-                    return;
-                  }
-                  return(
-                    <div key={provider.name}>
-                      <button
-                      className={styles.socials__btn}
-                      onClick={()=> signIn(provider.id)}
-                      >
-                        <img src={`../../icons/${provider.name}.png`} alt="provider-logo" />
-                        Signin with {provider.name}
-                      </button>
-                    </div>
-                  );
-                })
-                }
-              </div>
-            </div>
           </div>
         </div>
       </div>
-  
+
       <Footer />
     </>
   )
 }
 
-export async function getServerSideProps(content){
+export async function getServerSideProps(content) {
   const providers = Object.values(await getProviders());
   console.log(providers);
-  return { 
-    props : {
+  return {
+    props: {
       providers,
     }
   }
