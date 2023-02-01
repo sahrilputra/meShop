@@ -106,6 +106,67 @@ export default function Signin ({providers}) {
             </div>
           </div>
         </div>
+        <div className={styles.login__container}>
+          <div className={styles.login__form}>
+            <h1>Sign up</h1>
+            <p>Get access to the best E-commarce</p>
+            <Formik
+              enableReinitialize
+              initialValues={{
+                login_email,
+                login_password
+              }}
+              validationSchema={loginValidation}
+            >
+              {
+                (form) => (
+                  <Form>
+                    <LoginInput
+                      type="text"
+                      name="login_email"
+                      icon="email"
+                      placeholder="Email"
+                      onChange={handleChange}
+                    />
+                    <LoginInput
+                      type="password"
+                      name="login_password"
+                      icon="password"
+                      placeholder="Password"
+                      onChange={handleChange}
+                    />
+                    <CircleIconBtn type="type" text="Sign in" />
+                    <div className={styles.forgot}>
+                      <Link href="/forget">Forgot Pasword ?</Link>
+                    </div>
+                  </Form>
+                )
+              }
+            </Formik>
+            <div className={styles.login__socials}>
+              <span className={styles.or}>Or Cntinue with</span>
+              <div className={styles.login__socials_wrap}>
+                {providers.map((provider)=> {
+                  if(provider.name == "Credentials"){
+                    return;
+                  }
+                  return(
+                    <div key={provider.name}>
+                      <button
+                      className={styles.socials__btn}
+                      onClick={()=> signIn(provider.id)}
+                      >
+                        <img src={`../../icons/${provider.name}.png`} alt="provider-logo" />
+                        Signin with {provider.name}
+                      </button>
+                    </div>
+                  );
+                })
+                }
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
   
       <Footer />
