@@ -3,22 +3,22 @@ including so many technology to build E-commarce website with full of fitur, aut
 prefend to build with NextJs for framework and MonggoDb for database
 
 Framework : 
-# NextJs
-# SCSS
-# MongoDB
-# Redux
-# Express JS
-# NextAuth
-# MailChimp
+- NextJs
+- SCSS
+- MongoDB
+- Redux
+- Express JS
+- NextAuth
+- MailChimp
 
 Features : 
-# Singin & Login
-# Forgot & Reset Password
-# Display Product
-# Discount
-# Admin Dashboard
-# Payment 
-# Newsletter and Mail 
+- Singin & Login
+- Forgot & Reset Password
+- Display Product
+- Discount
+- Admin Dashboard
+- Payment 
+- Newsletter and Mail 
 
 ## Getting Started
 open the terminal  :
