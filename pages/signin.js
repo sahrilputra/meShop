@@ -12,6 +12,7 @@ import { getProviders, signIn } from 'next-auth/react';
 import { Provider } from 'react-redux';
 
 
+
 const initialValues = {
   login_email: "",
   login_password: "",
@@ -124,6 +125,7 @@ export default function Signin({ providers }) {
                         className={styles.socials__btn}
                         onClick={() => signIn(provider.id)}
                       >
+                        
                         <img src={`../../icons/${provider.name}.png`} alt="provider-logo" />
                         Signin with {provider.name}
                       </button>
