@@ -56,7 +56,7 @@ handler.post(async (req, res) => {
             id: addedUser._id.toString(),
         });
     const url= `${process.env.BASE_URL}/activate/${activation_token}`;
-        res.send(activation_token);
+        res.send(url);
 
     } catch (error) {
         res.status(500).json({
