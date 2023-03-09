@@ -57,7 +57,9 @@ handler.post(async (req, res) => {
             id: addedUser._id.toString(),
         });
     const url= `${process.env.BASE_URL}/activate/${activation_token}`;
-    sendEmail(email, url, "", "Activate your account")
+    sendEmail(email, url, "", "Activate your account");
+    await db.disconnectDb();
+    res.json({message:'Register Succes! Please Activate email to start'})
     } catch (error) {
         res.status(500).json({
             message: error.message

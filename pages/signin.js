@@ -20,10 +20,10 @@ const initialValues = {
   email: "",
   password: "",
   conf_password: "",
+  message: "",
 };
-
 export default function Signin({ providers }) {
-  console.log(providers);
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(initialValues);
   const {
     login_email, 
@@ -32,6 +32,7 @@ export default function Signin({ providers }) {
     email,
     password,
     conf_password, 
+    message,
   } = user;
 
   const handleChange = (e) => {
@@ -63,6 +64,17 @@ export default function Signin({ providers }) {
     .oneOf([Yup.ref("password")], "Password must match"),
 
   })
+
+  const singUpHandler = async() =>{
+    try {
+      setLoading(true);
+
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setUser({...user, message: error.data.message})
+    }
+  }
   return (
     <>
       {/* <Header /> */}
@@ -86,6 +98,9 @@ export default function Signin({ providers }) {
                 login_password
               }}
               validationSchema={loginValidation}
+              onSubmit={() => {
+                singUpHandler();
+              }}
             >
               {
                 (form) => (
