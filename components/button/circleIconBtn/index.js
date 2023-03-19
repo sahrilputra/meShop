@@ -5,12 +5,12 @@ export const CircleIconBtn = ({
     text,
     icon,
 }) => {
-    return ( 
-        <buton className={styles.button} type = {type} >  
-        <span>{text}</span>
-        <div className={styles.svg__wrap}>
-            <BiRightArrowAlt />
-        </div>
-        </buton>
-    )
+    return (
+        <button className={styles.button} type={type}>
+            {text}
+            <div className={styles.svg__wrap}>
+                <BiRightArrowAlt />
+            </div>
+        </button>
+    );
 }

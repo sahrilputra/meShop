@@ -1,10 +1,6 @@
 import nc from "next-connect";
-import {
-    validateEmail
-} from "../../../utils/validation"
-import {
-    createActivationToken
-} from "../../../utils/tokens"
+import { validateEmail } from "../../../utils/validation"
+import { createActivationToken } from "../../../utils/tokens"
 import db from "../../../utils/db"
 import User from "../../../models/Users"
 import bcrypt from "bcrypt";
@@ -56,10 +52,10 @@ handler.post(async (req, res) => {
         const activation_token = createActivationToken({
             id: addedUser._id.toString(),
         });
-    const url= `${process.env.BASE_URL}/activate/${activation_token}`;
-    sendEmail(email, url, "", "Activate your account");
-    await db.disconnectDb();
-    res.json({message:'Register Succes! Please Activate email to start'})
+        const url = `${process.env.BASE_URL}/activate/${activation_token}`;
+        sendEmail(email, url, "", "Activate your account");
+        await db.disconnectDb();
+        res.json({ message: 'Register Succes! Please Activate email to start' })
     } catch (error) {
         res.status(500).json({
             message: error.message
