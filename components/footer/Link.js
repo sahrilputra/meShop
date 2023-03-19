@@ -21,7 +21,7 @@ export default function Links() {
 }
 const links = [
   {
-    heading: "SHOPPAY",
+    heading: "LOKALIZE",
     links: [
       {
         name: "About us",

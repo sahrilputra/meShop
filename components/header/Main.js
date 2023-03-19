@@ -10,7 +10,7 @@ export const Main = () => {
         <div className={styles.main__container}>
             <Link href="/" legacyBehavior>
             <a className={styles.logo}>
-                <img src="../../../logo.png" alt="" />
+                <img src="../../../icon.svg" alt="" />
             </a>
             </Link>
             <div className={styles.search}>
