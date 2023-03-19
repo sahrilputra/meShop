@@ -9,13 +9,18 @@ import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { LoginInput } from '../components/inputs/loginInput';
 import { useState } from 'react';
-import { getProviders, signIn } from 'next-auth/react';
+// import { getProviders, signIn } from 'next-auth/react';
 import axios from "axios";
 import { Provider } from 'react-redux';
 import { LoaderSpinner } from '../components/loader/dotLoader';
 import Router from "next/router";
-
-
+import {
+  getCsrfToken,
+  getProviders,
+  getSession,
+  signIn,
+  country,
+} from "next-auth/react";
 
 const initialValues = {
   login_email: "",
@@ -273,7 +278,7 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
 export async function getServerSideProps(context) {
 
   const {req, query } = context;
-  const session = await getSesion({req});
+  const session = await getSession({req});
 const {callbackUrl} = query;
 
   if(session){

@@ -1,8 +1,9 @@
 .forgot {
-    min-height: calc(150vh - 650px);
+    min-height: calc(150vh - 550px);
     display: grid;
     place-items: center;
-
+    position: relative;
+    top: 30px;
     &__header {
         display: flex;
         align-items: center;
