@@ -1,0 +1,58 @@
+.forgot {
+    min-height: calc(150vh - 650px);
+    display: grid;
+    place-items: center;
+
+    &__header {
+        display: flex;
+        align-items: center;
+
+        .back__svg {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #2d2d2d;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+
+            &:hover {
+                border-color: $blue-color;
+
+                svg {
+                    fill: $blue-color;
+                    stroke: $blue-color;
+                }
+            }
+
+            svg {
+                width: 18px;
+                height: 18px;
+                fill: #222;
+            }
+        }
+
+        span {
+            // padding-left: 10px;
+            font-weight: 600;
+            font-size: 14px;
+
+            a {
+                color: $blue-color;
+                cursor: pointer;
+                border-bottom: 1px solid $blue-color;
+                padding-bottom: 5px;
+            }
+        }
+    }
+
+}
+.error{
+    padding: 8px;
+    color: $error-color;
+}
+
+.success{
+    padding: 8px;
+    color: $sucess-color;
+}

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from '../styles/signin.module.scss';
 import { Header } from "../components/header"
 import { Footer } from "../components/footer"
@@ -174,7 +175,7 @@ export default function Signin({ providers, callbackUrl, csrfToken }) {
                       <span className={styles.error}>{login_error}</span>
                     )}
                     <div className={styles.forgot}>
-                      <Link href="/forget">Forgot Pasword ?</Link>
+                      <Link href="/auth/forgot">Forgot Pasword ?</Link>
                     </div>
                   </Form>
                 )}

@@ -5,6 +5,7 @@ import db from "../../../utils/db"
 import User from "../../../models/Users"
 import bcrypt from "bcrypt";
 import { sendEmail } from "../../../utils/sendEmails";
+import { activateEmailTemplate } from "../../../emails/activateEmailTemplate";
 
 const handler = nc();
 handler.post(async (req, res) => {
@@ -53,9 +54,9 @@ handler.post(async (req, res) => {
             id: addedUser._id.toString(),
         });
         const url = `${process.env.BASE_URL}/activate/${activation_token}`;
-        sendEmail(email, url, "", "Activate your account");
+        sendEmail(email, url, "", "Activate your account", activateEmailTemplate);
         await db.disconnectDb();
-        res.json({ message: 'Register Succes! Please Activate email to start' })
+        res.json({ message: 'Check out your email, we has been sent to you, use it to reset your password' })
     } catch (error) {
         res.status(500).json({
             message: error.message
