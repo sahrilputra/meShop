@@ -27,7 +27,7 @@ export default function Menu() {
                 <li>
                     <span className={styles.menu__header}>
                         <BiCategory />
-                        <b>Categories</b>
+                        <b>Category</b>
                     </span>
                 </li>
                 <div className={styles.menu__list}>

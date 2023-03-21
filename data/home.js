@@ -36,7 +36,7 @@ export const offersAarray = [{
     },
 ];
 export const menuArray = [{
-        name: "Women's Fashion",
+        name: "Fashion Wanita",
         link: "",
         subMenu: [{
             name: "",
@@ -46,7 +46,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Men's Fashion",
+        name: "Fashion Pria",
         link: "",
         subMenu: [{
             name: "",
@@ -56,7 +56,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Electronics",
+        name: "Elektronik",
         link: "",
         subMenu: [{
             name: "",
@@ -66,7 +66,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Jewlery & Watches",
+        name: "Perhiasan & Jam Tangan",
         link: "",
         subMenu: [{
             name: "",
@@ -76,7 +76,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Home, Pet & Appliances",
+        name: "Perlengkapan Rumah",
         link: "",
         subMenu: [{
             name: "",
@@ -86,7 +86,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Beauty, Health & Hair",
+        name: "Kecantikan & Kesehatan",
         link: "",
         subMenu: [{
             name: "",
@@ -94,21 +94,8 @@ export const menuArray = [{
         }, ],
         brands: [],
         images: [],
-    },
-
-    {
-        name: "Shoes,Sneakers,Heels",
-        link: "",
-        subMenu: [{
-            name: "",
-            link: "",
-        }, ],
-        brands: [],
-        images: [],
-    },
-
-    {
-        name: "Accessories",
+    }, {
+        name: "Sepatu, Sneaker, Heels",
         link: "",
         subMenu: [{
             name: "",
@@ -119,7 +106,18 @@ export const menuArray = [{
     },
 
     {
-        name: "Sports & Entertainment ",
+        name: "Aksesoris",
+        link: "",
+        subMenu: [{
+            name: "",
+            link: "",
+        }, ],
+        brands: [],
+        images: [],
+    },
+
+    {
+        name: "Olahraga & Hiburan",
         link: "",
         subMenu: [{
             name: "",
@@ -129,7 +127,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Kids & Babies",
+        name: "Anak-anak & Bayi",
         link: "",
         subMenu: [{
             name: "",
@@ -139,7 +137,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Movies & Television",
+        name: "Film & Televisi",
         link: "",
         subMenu: [{
             name: "",
@@ -149,7 +147,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Gaming, Video Games",
+        name: "Gaming, Video Game",
         link: "",
         subMenu: [{
             name: "",
@@ -159,7 +157,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Phones",
+        name: "Telepon",
         link: "",
         subMenu: [{
             name: "",
@@ -169,7 +167,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Toys & Hobbies",
+        name: "Mainan & Hobi",
         link: "",
         subMenu: [{
             name: "",
@@ -179,7 +177,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Gifts & Crafts",
+        name: "Hadiah & Kerajinan",
         link: "",
         subMenu: [{
             name: "",
@@ -189,7 +187,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Machinery",
+        name: "Mesin",
         link: "",
         subMenu: [{
             name: "",
@@ -199,7 +197,7 @@ export const menuArray = [{
         images: [],
     },
     {
-        name: "Security, Safety",
+        name: "Keamanan, Keselamatan",
         link: "",
         subMenu: [{
             name: "",
@@ -389,5 +387,63 @@ export const userSwiperArray = [{
     {
         image: "https://ae01.alicdn.com/kf/S31f6384cf5ae41da86f9554615e7e392E.jpg_220x220.webp_480x480Q90.webp",
         link: "",
+    },
+];
+
+export const flashDealsArray = [{
+        image: "https://img.ltwebstatic.com/images3_pi/2022/09/15/1663220709c947ca4ad9aefd9c1f4baf5915653468_thumbnail_600x.webp",
+        price: "91",
+        discount: "11",
+        link: "",
+        sold: "30",
+    },
+    {
+        image: "https://img.ltwebstatic.com/images3_pi/2022/09/20/1663668243e6d8f250648c2f34988320c046cba68f_thumbnail_405x552.webp",
+        price: "73",
+        discount: "25",
+        link: "",
+        sold: "61",
+    },
+    {
+        image: "https://img.ltwebstatic.com/images3_pi/2022/03/25/164818761997d2ccb1de50aed18da9d77502717405_thumbnail_405x552.webp",
+        price: "254",
+        discount: "36",
+        link: "",
+        sold: "12",
+    },
+    {
+        image: "https://img.ltwebstatic.com/images3_pi/2022/05/13/165244123600952e503ccab89dd363c9b71f9094f8_thumbnail_405x552.webp",
+        price: "1687",
+        discount: "20",
+        link: "",
+        sold: "96",
+    },
+    {
+        image: "https://img.ltwebstatic.com/images3_pi/2022/06/17/16554568735029a68267cacc48382e23027667093f_thumbnail_405x552.webp",
+        price: "126",
+        discount: "8",
+        link: "",
+        sold: "12",
+    },
+    {
+        image: "https://img.ltwebstatic.com/images3_pi/2022/08/17/16607290552013caeedd00666350d71774fcd6e95f_thumbnail_405x552.webp",
+        price: "65",
+        discount: "7",
+        link: "",
+        sold: "82",
+    },
+    {
+        image: "https://img.ltwebstatic.com/images3_pi/2022/09/02/166210785062f36a63bcecd00693783c4b6cd0c2a2_thumbnail_600x.webp",
+        price: "41",
+        discount: "9",
+        link: "",
+        sold: "52",
+    },
+    {
+        image: "https://img.ltwebstatic.com/images3_pi/2022/09/01/1662028598b9164c30a8410fc9d71b81fc63748d4e_thumbnail_405x552.webp",
+        price: "288",
+        discount: "35",
+        link: "",
+        sold: "49",
     },
 ];

@@ -2,6 +2,8 @@ $box-shadow :20px 20px 80px #bebebe,
 -20px -20px 80px #ffffff;
 $blue-color: #2f82ff;
 $grey-color: #f8f8f8;
+$yellow-color: #ffd300;
+$redish-color: #f35b69;
 $light-error-color: #fd010169;
 $error-color: #ed4337;
 $sucess-color: #6cc070;
@@ -72,8 +74,10 @@ $shadow-2: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     cursor: pointer;
 }
 
-.mainSwipper,
-.offers_swiper {
+.mainSwiper,
+.user__swiper,
+.flashDeals__swiper,
+.offers_swipe {
 
     .swiper {
         border-radius: 10px !important;
