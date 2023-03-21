@@ -362,3 +362,32 @@ export const gamingSwiper = [{
         price: "",
     },
 ];
+export const userSwiperArray = [{
+        image: "https://ae01.alicdn.com/kf/S8bf3306f6f7b4855b147862236a5a12dD/45MM-Transparent-Mod-Kit-Case-for-Apple-Watch-Band-7-45-44MM-Rubber-Sports-Watchband-for.jpg_220x220xz.jpg_.webp",
+        link: "",
+    },
+    {
+        image: "https://ae01.alicdn.com/kf/Sdb42f04658cd4a9c82018e22e90a78a2X.jpg_220x220.webp_480x480Q90.webp",
+        link: "",
+    },
+    {
+        image: "https://ae01.alicdn.com/kf/H5914a44106c44f4ca51280c4fcd0a3bfY.jpg_220x220.webp_480x480Q90.webp",
+        link: "",
+    },
+    {
+        image: "https://ae01.alicdn.com/kf/H5b92665c4bae4160845d4d235586a41b7/Win10-OneGX1-Pro-Mini-Laptop-Gaming-7-inch-Notebook-Computer-Intel-i7-16G-RAM-512G-PICe.jpg_220x220xz.jpg_.webp",
+        link: "",
+    },
+    {
+        image: "https://ae01.alicdn.com/kf/H01e60132bef1420a849fa84700ebae174.jpg_350x350.jpg_480x480Q90.webp",
+        link: "",
+    },
+    {
+        image: "https://ae01.alicdn.com/kf/S714e9ef3689b4a31954f2d180d4938c9u.jpg_220x220.webp_480x480Q90.webp",
+        link: "",
+    },
+    {
+        image: "https://ae01.alicdn.com/kf/S31f6384cf5ae41da86f9554615e7e392E.jpg_220x220.webp_480x480Q90.webp",
+        link: "",
+    },
+];
