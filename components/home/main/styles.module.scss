@@ -1,35 +1,96 @@
-.main{
+.main {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     gap: 10px;
-    grid-template-areas: 
-    "menu header header"
-    "menu swipper user"
-    "menu offers user";
-    
+    grid-template-areas:
+        "menu header header"
+        "menu swipper user"
+        "menu offers user";
 
-    .menu{
+
+    .menu {
         grid-area: menu;
         height: 580px;
         background: #fff;
         border-radius: 10px;
         box-shadow: $shadow-1;
+
+        &__header {
+            width: 100%;
+            height: 35px;
+            background: $grey-color;
+            border-bottom: 1px solid $grey-color;
+            
+
+            @media (max-width: 990px) {
+                display: none !important;
+
+                svg,
+                b {
+                    display: none;
+                }
+            }
+
+            svg {
+                height: 23px;
+                width: 23px;
+            }
+        }
+
+        &__list {
+            margin-top: 3px;
+        }
+
+        ul {
+            li {
+                height: 32px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                &:hover {
+                    background: $grey-color;
+                }
+
+                a {
+                    padding: 0 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: #424141;
+
+                    svg {
+                        fill: #8c8484;
+                        stroke: #8c8484;
+                    }
+
+                    span {
+                        @media (max-width: 990px) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
     }
-    .header{
+
+    .header {
         grid-area: header;
         height: 40px;
         background: #fff;
         border-radius: 10px;
         box-shadow: $shadow-1;
     }
-    .swipper{
+
+    .swipper {
         grid-area: swipper;
         height: 300px;
         background: #fff;
         border-radius: 10px;
         box-shadow: $shadow-1;
     }
-    .offers{
+
+    .offers {
         grid-area: offers;
         background: #fff;
         border-radius: 10px;
@@ -45,7 +106,8 @@
 
 
     }
-    .user{
+
+    .user {
         grid-area: user;
         height: 530px;
         background: #fff;
