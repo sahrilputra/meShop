@@ -1,5 +1,16 @@
 .home{
     min-height: 100vh;
     background-color: $grey-color;
-    
+    &__category{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        @media (max-width:850px) {
+            grid-template-columns: repeat(2, 1fr);
+            
+        }
+        @media (max-width:550px) {
+            grid-template-columns: 1fr;
+        }
+    }
 }
