@@ -39,7 +39,8 @@ export default function ProductsSwiper({ header, products, bg }) {
                     },
                 }}
             >
-                {products.map((product) => (
+                {
+                    products.map((product) => (
                     <>
                         <SwiperSlide>
                             <div className={styles.product}>

@@ -217,4 +217,23 @@ $shadow-2: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
 }
 
+.products__swiper {
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        background: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #666;
+        box-shadow: $shadow-1;
+
+        &::after {
+            transform: scale(0.5);
+        }
+    }
+}
+
 // ======================= swipper

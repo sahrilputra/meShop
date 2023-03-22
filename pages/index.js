@@ -9,7 +9,8 @@ import Category from '../components/home/category'
 import FlashDeals from '../components/home/flashDeals'
 import {
   women_dresses,
-  women_shoes, women_accessories
+  women_shoes, women_accessories, 
+  women_swiper, gamingSwiper,homeImprovSwiper,
 } from '../data/home'
 import { useMediaQuery } from "react-responsive";
 const inter = Inter({ subsets: ['latin'] })
@@ -54,6 +55,10 @@ export default function Home() {
                 products={women_accessories}
                 background="#000" />
             </div>
+
+            <ProductsSwiper products={women_swiper}/>
+            <ProductsSwiper products={gamingSwiper} header="Untuk Gamer" bg="#2f822f"/>
+            <ProductsSwiper products={homeImprovSwiper} header="Perlengkapan Rumah" bg="#2d23ff"/>
           </div>
         </div>
         <Footer />
