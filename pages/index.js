@@ -15,10 +15,15 @@ import {
 import { useMediaQuery } from "react-responsive";
 const inter = Inter({ subsets: ['latin'] })
 import ProductsSwiper from "../components/productsSwiper";
-import Product from "../models/Product";
+import Product from '../models/Product'
 import ProductCard from "../components/productCard";
 
-export default function Home() {
+// database
+import db from '../utils/db';
+
+
+export default function Home({ products }) {
+  console.log("products", products);
   const { data: session } = useSession()
   console.log(session)
   const isMedium = useMediaQuery({ query: "(max-width:850px)" });
@@ -65,4 +70,16 @@ export default function Home() {
       </div>
     </>
   )
+}
+
+export async function getServerSideProps(){
+db.connectDb();
+let products = await Product.find().sort({createdAt:-1}).lean();
+console.log(products);
+
+return{
+  props:{
+    products: JSON.parse(JSON.stringify(products)),
+  }
+}
 }

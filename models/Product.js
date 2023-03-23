@@ -23,7 +23,7 @@ const reviewSchema = new mongoose.Schema({
   },
   style: {
     color: String,
-    image: true,
+    image: String,
   },
   rating: {
     type: String,
