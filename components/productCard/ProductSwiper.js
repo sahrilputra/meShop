@@ -16,6 +16,7 @@ export default function ProductSwiper({ images }) {
     useEffect(() => {
         swiperRef.current.swiper.autoplay.stop();
     }, [swiperRef]);
+
     return (
         <div
             className={styles.swiper}
@@ -35,9 +36,10 @@ export default function ProductSwiper({ images }) {
                 modules={[Autoplay]}
             >
                 {images.map((img) => (
-                    <>          <SwiperSlide>
-                        <img src={img.url} alt="" />
-                    </SwiperSlide>
+                    <>
+                        <SwiperSlide>
+                            <img src={img.url} alt="" />
+                        </SwiperSlide>
                     </>
                 ))}
             </Swiper>

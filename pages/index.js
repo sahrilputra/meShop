@@ -64,6 +64,15 @@ export default function Home({ products }) {
             <ProductsSwiper products={women_swiper}/>
             <ProductsSwiper products={gamingSwiper} header="Untuk Gamer" bg="#2f822f"/>
             <ProductsSwiper products={homeImprovSwiper} header="Perlengkapan Rumah" bg="#2d23ff"/>
+            <div className={styles.products}>
+              {
+                products.map((product)=>(
+                  <>
+                  <ProductCard  product={product} key={product._id}/>
+                  </>
+                ))
+              }
+            </div>
           </div>
         </div>
         <Footer />

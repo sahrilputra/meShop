@@ -3,19 +3,23 @@
     width: 290px;
     height: 500px;
 
+    h1 {
+        font-size: 13px;
+        font-weight: normal;
+        color: #222;
+    }
+
+    span {
+        color: $redish-color;
+        font-weight: 600;
+    }
+
     &__infos {
         width: 100%;
         margin-top: 1px;
-
-        h1 {
-            font-size: 13px;
-            font-weight: normal;
-            color: #222;
-        }
-
-        span {
-            color: $redish-color;
-            font-weight: 600;
+        
+        h1{
+            font-size: 40px;    
         }
     }
 
@@ -65,7 +69,7 @@
         border-radius: 50%;
         display: grid;
         place-items: center;
-        font-size: 15px;
+        font-size: 13px;
         font-weight: 600;
     }
 }
