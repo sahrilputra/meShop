@@ -38,7 +38,7 @@ export default function ProductCard({ product }) {
     return (
         <div className={styles.product}>
             <div className={styles.product__container}>
-                <Link href={`/product/${product.slug}?style${active}`}>
+                <Link href={`/product/${product.slug}?style=${active}`}>
                     <div>
                         <ProductSwiper images={images} />
                     </div>

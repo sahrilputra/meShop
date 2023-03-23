@@ -30,6 +30,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
+    "react-image-magnify": "^2.7.4",
     "react-redux": "^8.0.5",
     "react-spinners": "^0.13.8",
     "redux": "^4.2.0",
@@ -40,5 +41,8 @@
     "sass": "^1.57.1",
     "swiper": "^9.1.1",
     "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "react-responsive": "^9.0.2"
   }
 }
