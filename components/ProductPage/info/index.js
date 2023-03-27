@@ -6,7 +6,8 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { TbMinus, TbPlus } from 'react-icons/tb'
-import {BsHeart, BsHandbagFill} from 'react-icons/bs'
+import { BsHeart, BsHandbagFill } from 'react-icons/bs'
+import Accordian from './Accordian'
 export const Infos = ({ product, setActiveImg }) => {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);
@@ -135,21 +136,20 @@ export const Infos = ({ product, setActiveImg }) => {
 
                     <div className={styles.infos__actions}>
                         <button
-                        disabled={product.quantity<1}
-                        style={{curson:`${product.quantity<1?  "Tidak-dapat diproses" : ""}`}}
+                            disabled={product.quantity < 1}
+                            style={{ curson: `${product.quantity < 1 ? "Tidak-dapat diproses" : ""}` }}
                         >
-                        <BsHandbagFill />
-                        <b>ADD TO CART</b>
+                            <BsHandbagFill />
+                            <b>ADD TO CART</b>
                         </button>
                         <button>
-                        <BsHeart />
-                        WISHLIST
+                            <BsHeart />
+                            WISHLIST
                         </button>
                     </div>
 
-                    <div className={styles.infos__share}>
-                        <ShareControl />
-                    </div>
+                    <ShareControl />
+                    <Accordian details={[product.description, ...product.details]}  />
                 </div>
             </div>
         </>
