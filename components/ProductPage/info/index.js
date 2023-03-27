@@ -1,12 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 import { Rating } from '@mui/material'
+import { ShareControl } from '../share/shareControl'
 import styles from './styles.module.scss'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { TbMinus, TbPlus } from 'react-icons/tb'
+import {BsHeart, BsHandbagFill} from 'react-icons/bs'
 export const Infos = ({ product, setActiveImg }) => {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);
+    const [qty, setQty] = useState(1);
+
+    useEffect(() => {
+        setSize("");
+        setQty(1);
+    }, [router.query.style]);
+
+    useEffect(() => {
+        if (qty > product.quantity) {
+            setQty(product.quantity);
+        }
+    }, [product.quantity, qty, router.query.size]);
+
+
     return (
         <>
             <div className={styles.infos}>
@@ -90,7 +107,7 @@ export const Infos = ({ product, setActiveImg }) => {
                                 <>
                                     <span
                                         className={`${i == router.query.style ? styles.actice_color : ""}`}
-                                        onMouseOver={() => 
+                                        onMouseOver={() =>
                                             setActiveImg(product.subProducts[i].images[0].url)}
                                         onMouseLeave={() => setActiveImg("")}
                                     >
@@ -101,6 +118,37 @@ export const Infos = ({ product, setActiveImg }) => {
                                 </>
                             ))
                         }
+                    </div>
+
+                    <div className={styles.infos__qty}>
+                        <button>
+                            <TbMinus
+                                onClick={() => qty > 1 && setQty((prev) => prev - 1)} />
+                        </button>
+                        <span>
+                            {qty}
+                        </span>
+                        <button>
+                            <TbPlus onClick={() => qty < product.quantity && setQty((prev) => prev + 1)} />
+                        </button>
+                    </div>
+
+                    <div className={styles.infos__actions}>
+                        <button
+                        disabled={product.quantity<1}
+                        style={{curson:`${product.quantity<1?  "Tidak-dapat diproses" : ""}`}}
+                        >
+                        <BsHandbagFill />
+                        <b>ADD TO CART</b>
+                        </button>
+                        <button>
+                        <BsHeart />
+                        WISHLIST
+                        </button>
+                    </div>
+
+                    <div className={styles.infos__share}>
+                        <ShareControl />
                     </div>
                 </div>
             </div>

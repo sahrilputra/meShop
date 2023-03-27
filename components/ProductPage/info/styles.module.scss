@@ -1,27 +1,32 @@
-.infos{
+.infos {
     color: #666;
-    background: #fff;
+
     @media (max-width: 840px) {
         padding-top: 1rem;
     }
+
     @media (max-width: 460px) {
         min-width: 340px;
     }
-    &__name{
+
+    &__name {
         font-size: 14px;
         font-weight: normal;
     }
-    &__rating{
+
+    &__rating {
         display: flex;
         align-items: center;
         gap: 2px;
         font-size: 14px;
     }
-    &__price{
+
+    &__price {
         color: #fa6338;
         display: flex;
         align-items: center;
-        h3{
+
+        h3 {
             font-weight: normal;
             font-size: 16px;
             padding-left: 5px;
@@ -29,30 +34,36 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            span{
-                &:first-of-type{
+
+            span {
+                &:first-of-type {
                     text-decoration: line-through;
                 }
-                &:last-of-type{
+
+                &:last-of-type {
                     color: $violet-color;
                 }
             }
         }
     }
-    &__shipping{
+
+    &__shipping {
         display: block;
         color: $blue-color;
     }
-    &__sizes{
+
+    &__sizes {
         margin-top: 1rem;
-        &_wrap{
+
+        &_wrap {
             margin-top: 10px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 1rem;
         }
-        &_size{
+
+        &_size {
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -60,23 +71,24 @@
             place-items: center;
             border: 1px solid #dedede;
             cursor: pointer;
-            &:hover{
-                background-image: linear-gradient(
-                    to top,
-                    #f3e79e 0%,
-                    #e4eeff 99%,
-                    #e4eeff 100%,
-                );
+
+            &:hover {
+                background-image: linear-gradient(to top,
+                        #f3e79e 0%,
+                        #e4eeff 99%,
+                        #e4eeff 100%,
+                    );
             }
         }
     }
 
-    &__colors{
+    &__colors {
         display: flex;
         align-items: center;
         margin-top: 1rem;
         gap: 1rem;
-        span{
+
+        span {
             display: grid;
             width: 40px;
             height: 40px;
@@ -84,29 +96,110 @@
             border-radius: 50%;
             overflow: hidden;
             cursor: pointer;
-            img{
+
+            img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
-            &:hover{
+
+            &:hover {
                 outline: 1px solid #666;
                 outline-offset: 2px;
 
             }
         }
     }
+
+    &__qty {
+        margin-top: 0.8rem;
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+
+            svg {
+                transform: scale(0.9);
+            }
+
+            span {
+                width: 20px;
+                text-align: center;
+            }
+        }
+    }
+
+    &__actions {
+        @media (min-width: 1160px) {
+            display: flex;
+            gap: 1rem;
+        }
+
+        button {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 60px;
+            color: #2d2d2d;
+            font-weight: 600;
+            font-size: 17px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+            svg {
+                width: 30px;
+                height: 30px;
+                transform: translateY((-3px));
+            }
+
+            &:first-of-type {
+                background-image: linear-gradient(to top,
+                        #f3e7e9 0%,
+                        #e3eeff 99%,
+                        #e3eeff 100%,
+                    );
+            }
+            &:last-of-type{
+                border: 1px solid #000;
+                background-color: #222;
+                color: #fff;
+                svg{
+                    margin-top: 5px;
+                }
+                @media (min-width : 1160px) {
+                    width: 300px;
+                    
+                }&:hover{
+                    background-color: transparent;
+                    border: 1px solid #dedede;
+                    color: #000;
+                }
+            }
+
+
+        }
+    }
 }
-.actice_color{
+
+.actice_color {
     outline: 1px solid #666;
     outline-offset: 2px;
 }
 
-.active_size{
-    background-image: linear-gradient(
-        to top,
-        #f3e79e 0%,
-        #e4eeff 99%,
-        #e4eeff 100%,
-    );
+.active_size {
+    background-image: linear-gradient(to top,
+            #f3e79e 0%,
+            #e4eeff 99%,
+            #e4eeff 100%,
+        );
 }

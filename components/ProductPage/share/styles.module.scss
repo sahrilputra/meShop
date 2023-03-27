@@ -1,0 +1,15 @@
+.share {
+    margin: auto;
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    svg {
+        border-radius: 50%;
+        transition: transform 0.1s ease;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
