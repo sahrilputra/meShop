@@ -1,15 +1,17 @@
 import { Rating } from '@mui/material'
 import styles from './styles.module.scss'
-
+import {useSession, signIn } from 'next-auth/react'
+import { AddReview } from './AddReview';
 
 export const ReviewControl = ({ product }) => {
+    const { data : session } = useSession();
     return (
         <div className={styles.reviews}>
             <div className={styles.review__container}>
                 <h1>Review Pelanggan ({product.reviews.length}+)</h1>
                 <div className={styles.reviews__stats}>
                     <div className={styles.reviews__stats_overview}>
-                        <span>Average Ratings</span>
+                        <span>Ratings</span>
                         <div className={styles.reviews__stats_overview_rating}>
                             <Rating
                                 name="half-rating-read"
@@ -46,6 +48,16 @@ export const ReviewControl = ({ product }) => {
                         }
                     </div>
                 </div>
+
+                {
+                    session ? (
+                        <AddReview product={product}/>
+                    ):(
+                        <button
+                        onClick={()=> signIn()}
+                        className={styles.login_btn}>Anda belum login</button>
+                    )
+                }
             </div>
         </div>
     )
