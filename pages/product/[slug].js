@@ -62,7 +62,7 @@ export default function product({
 
                     </div>
 
-                    <ReviewControl/>
+                    <ReviewControl product={product} />
                 </div>
             </div>
         </>
@@ -120,6 +120,23 @@ export async function getServerSideProps(context) {
             subProduct.sizes[size].price,
         priceBefore: subProduct.sizes[size].price,
         quantity: subProduct.sizes[size].qty,
+        ratings: [
+            {
+                percentage: 72,
+            },
+            {
+                percentage: 42,
+            },
+            {
+                percentage: 21,
+            },
+            {
+                percentage: 19,
+            },
+            {
+                percentage: 2,
+            },
+        ],
     }
 
     //============================
