@@ -236,4 +236,23 @@ $shadow-2: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
 }
 
+.simillar_swiper {
+    max-width: 550px;
+    .swiper-pagination {
+        display: none !important;
+    }
+
+    img {
+        width: 100px;
+        height: 160px;
+        object-fit: cover;
+        cursor: pointer;
+
+        @media (min-width: 550px) {
+            width: 150px;
+            height: 200px;
+        }
+    }
+}
+
 // ======================= swipper

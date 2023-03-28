@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Rating } from '@mui/material'
-import { ShareControl } from '../share/shareControl'
+import { ShareControl } from './share/shareControl'
 import styles from './styles.module.scss'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { TbMinus, TbPlus } from 'react-icons/tb'
 import { BsHeart, BsHandbagFill } from 'react-icons/bs'
 import Accordian from './Accordian'
+import SimillarSwiper from './SimilliarSwipper'
 export const Infos = ({ product, setActiveImg }) => {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);
@@ -40,7 +41,7 @@ export const Infos = ({ product, setActiveImg }) => {
                             style={{ color: "FACF19" }}
                         />
                         {product.numReviews}
-                        {
+                        { 
                             product.numReviews == 1 ? "review" : "reviews"
                         }
                     </div>
@@ -150,6 +151,7 @@ export const Infos = ({ product, setActiveImg }) => {
 
                     <ShareControl />
                     <Accordian details={[product.description, ...product.details]}  />
+                    <SimillarSwiper />
                 </div>
             </div>
         </>

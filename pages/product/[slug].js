@@ -14,6 +14,7 @@ import {
 import {
     Infos
 } from '../../components/ProductPage/info'
+import { ReviewControl } from '../../components/ProductPage/reviews/reviewControl'
 export default function product({
     product
 }) {
@@ -47,9 +48,7 @@ export default function product({
                             ))
                         } </div>
 
-                    <div className={
-                        styles.product__main
-                    } >
+                    <div className={styles.product__main} >
                         < MainSwiper images={
                             product.images
                         }
@@ -62,6 +61,8 @@ export default function product({
                         </div>
 
                     </div>
+
+                    <ReviewControl/>
                 </div>
             </div>
         </>

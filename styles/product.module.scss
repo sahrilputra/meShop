@@ -1,6 +1,11 @@
 .product {
     min-height: 100vh;
-
+    &__container{
+        max-width: 1300px;
+        margin: 0;
+        padding: 1rem;
+        
+    }
     .path {
         font-size: 14px;
         color: #666;
