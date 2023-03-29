@@ -8,7 +8,7 @@ export const SelectControl = ({ property, text, data, handleChange }) => {
     const [visible, setVisible] = useState(false);
     return (
         <div className={styles.select}>
-            {text}: 
+            {text}:
             <div className={styles.select__header}
                 onMouseOver={() => setVisible(true)}
                 onMouseLeave={() => setVisible(false)}
@@ -19,12 +19,13 @@ export const SelectControl = ({ property, text, data, handleChange }) => {
                 >
                     {
                         text == "Size" ? (
-                            property || `Select ${text}`
+                            property || `Pilih Ukuran`
                         ) : text == "Style" && property.image ? (
                             <img src={property.image}
                                 alt="properti image" />
-                        ) : (
-                            "Pilih"
+                        ) : (text == "How does it fit" && property ? (
+                            property
+                        ) : "Pilih"
                         )
                     }
                     <IoArrowDown />
@@ -57,6 +58,18 @@ export const SelectControl = ({ property, text, data, handleChange }) => {
                                             >
                                                 <span >
                                                     <img src={item.image} alt="image colors" />
+                                                </span>
+                                            </li>
+                                        </>
+                                    );
+                                } if (text == "How does it fit") {
+                                    return (
+                                        <>
+                                            <li key={i}
+                                                onClick={() => handleChange(item)}
+                                            >
+                                                <span >
+                                                    {item}
                                                 </span>
                                             </li>
                                         </>

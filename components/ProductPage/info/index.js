@@ -135,6 +135,7 @@ export const Infos = ({ product, setActiveImg }) => {
                         </button>
                     </div>
 
+                        <Accordian details={[product.description, ...product.details]}  />
                     <div className={styles.infos__actions}>
                         <button
                             disabled={product.quantity < 1}
@@ -150,7 +151,6 @@ export const Infos = ({ product, setActiveImg }) => {
                     </div>
 
                     <ShareControl />
-                    <Accordian details={[product.description, ...product.details]}  />
                     <SimillarSwiper />
                 </div>
             </div>

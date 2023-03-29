@@ -94,6 +94,23 @@
         gap: 1rem;
         border-radius: 10px;
 
+        &_wrap {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+
+        }
+
+        textarea{
+            margin-top: 1rem;
+            border: none;
+            outline: none;
+            resize: none;
+            min-height: 150px;
+            padding: 1rem;
+        }
+
         .select {
             margin-top: 1rem;
             display: flex;
@@ -122,9 +139,6 @@
                     object-fit: cover;
                 }
 
-                &_wrap {
-                 
-                }
 
                 &_menu {
                     padding: 0;
