@@ -102,7 +102,7 @@
 
         }
 
-        textarea{
+        textarea {
             margin-top: 1rem;
             border: none;
             outline: none;
@@ -186,5 +186,39 @@
         cursor: pointer;
 
     }
+}
 
+.imgs_wrap {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    span {
+        position: relative;
+
+        img {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            fill: #fff;
+            display: none;
+        }
+
+        &:hover {
+            svg {
+                display: block;
+            }
+        }
+    }
 }

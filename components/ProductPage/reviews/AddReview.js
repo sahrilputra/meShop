@@ -2,12 +2,14 @@ import styles from './styles.module.scss'
 import { SelectControl } from './SelectControl'
 import { useState } from 'react'
 import { Rating } from '@mui/material'
+import Images from './Images'
 export const AddReview = ({ product }) => {
     const [size, setSize] = useState("")
     const [style, setStyle] = useState("");
     const [fit, setFit] = useState("");
     const [review, setReview] = useState("");
     const [rating, setRating] = useState();
+    const [images, setImages] = useState([]);
 
     return (
         <div className={styles.reviews__add}>
@@ -32,6 +34,7 @@ export const AddReview = ({ product }) => {
                         data={fits.filter((x) => x !== style)}
                         handleChange={setFit} />
                 </div>
+                <Images images={images} setImages={setImages} />
                 <textarea
                     name="review"
                     value={review}
