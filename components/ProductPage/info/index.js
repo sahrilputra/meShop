@@ -9,11 +9,17 @@ import { TbMinus, TbPlus } from 'react-icons/tb'
 import { BsHeart, BsHandbagFill } from 'react-icons/bs'
 import Accordian from './Accordian'
 import SimillarSwiper from './SimilliarSwipper'
+import { addToCart, updateCart } from '../../../store/cartSlice'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
 export const Infos = ({ product, setActiveImg }) => {
     const router = useRouter();
+    const dispatch = useDispatch();
     const [size, setSize] = useState(router.query.size);
     const [qty, setQty] = useState(1);
+    const [error, setError] = useState("");
+    const { cart } = useSelector((state) => ({ ...state }))
+    console.log("CART ==========> ", cart);
 
     useEffect(() => {
         setSize("");
@@ -28,9 +34,43 @@ export const Infos = ({ product, setActiveImg }) => {
 
 
     const addToCartHandler = async () => {
+
+        if (!router.query.size) {
+            setError('Pilih Ukuran terlebih dahulu');
+            return;
+        }
         const { data } = await axios.get(
             `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`
         )
+
+        if (qty > data.quantity) {
+            setError("Product yang dipilih melebihi stock, kurangi beberapa item terlebih dahulu");
+        } else if (data.quantity < 1) {
+            setError("Procut ini kehabisan stock");
+            return;
+        } else {
+            let _uid = `${data._id}_${product.style}_${router.query.size}`;
+            console.log(_uid);
+            let exist = cart.cartItems.find((p) => p._uid === _uid);
+            if (exist) {
+                let newCart = cart.cartItems.map((p) => {
+                    if (p._uid == exist._uid) {
+                        return { ...p, qty: qty };
+                    }
+                    return p;
+                });
+                dispatch(updateCart(newCart));
+            } else {
+                dispatch(addToCart(
+                    {
+                        ...data,
+                        qty,
+                        size: data.sizes,
+                        _uid,
+                    }
+                ))
+            }
+        }
         console.log("data ========> ", data);
     }
 
@@ -159,6 +199,9 @@ export const Infos = ({ product, setActiveImg }) => {
                             WISHLIST
                         </button>
                     </div>
+                    {
+                        error && <span className={styles.error} style={{ color: "red" }}>{error}</span>
+                    }
 
                     <ShareControl />
                     <SimillarSwiper />
