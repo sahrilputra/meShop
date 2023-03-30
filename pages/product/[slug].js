@@ -3,6 +3,7 @@ import db from '../../utils/db'
 import Product from '../../models/Product'
 import Category from '../../models/Category'
 import SubCategory from '../../models/SubCategory'
+import Users from '../../models/Users'
 import Head from 'next/head';
 import {
     Header
@@ -89,6 +90,9 @@ export async function getServerSideProps(context) {
         .populate({
             path: "subCategories._id",
             model: SubCategory
+        }).populate({
+            path: "reviews.reviewBy",
+            model: Users
         })
         .lean();
     let subProduct = product.subProducts[style];

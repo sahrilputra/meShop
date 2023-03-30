@@ -222,3 +222,130 @@
         }
     }
 }
+
+.review {
+    position: relative;
+    padding: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid #ccc;
+
+    .flex {
+        width: 100%;
+
+        &:last-of-type {
+            justify-content: space-between;
+        }
+
+        gap: 1rem !important;
+    }
+
+    &__img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    @media (max-width: 880px) {
+        flex-direction: column;
+
+        .flex {
+            &:first-of-type {
+                justify-content: flex-start;
+            }
+        }
+    }
+
+    &__user {
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: blur(1px);
+        }
+    }
+
+    &__review {
+        color: #666;
+        padding-right: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        p {
+            font-size: 14px;
+
+            span {
+                font-weight: 600;
+            }
+        }
+    }
+
+    &__images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        img {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+            cursor: pointer;
+
+            @media (max-width: 450px) {
+                width: 70px;
+                height: 100px;
+            }
+        }
+    }
+
+    &__extra {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3rem;
+        font-size: 14px;
+        height: 100%;
+
+        &_likes {
+            display: flex;
+            align-self: center;
+        }
+
+        svg {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        &_date {
+            color: #666;
+        }
+    }
+}
+
+.pagination {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+// .table {
+//     &__header {
+//         width: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         justify-content: flex-end;
+//         gap: 1rem;
+//         padding: 0 1rem 1rem 1rem;
+//         border-bottom: 1px solid #ccc;
+//     }
+// }

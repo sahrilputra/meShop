@@ -2,7 +2,7 @@ import { Rating } from '@mui/material'
 import styles from './styles.module.scss'
 import {useSession, signIn } from 'next-auth/react'
 import { AddReview } from './AddReview';
-
+import { Table } from './Table';
 export const ReviewControl = ({ product }) => {
     const { data : session } = useSession();
     return (
@@ -58,6 +58,8 @@ export const ReviewControl = ({ product }) => {
                         className={styles.login_btn}>Anda belum login</button>
                     )
                 }
+
+                <Table reviews={product.reviews} />
             </div>
         </div>
     )

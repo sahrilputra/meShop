@@ -236,7 +236,8 @@
         "reviews": [
             {
                 "reviewBy": {
-                    "$oid": "62b33178fbcc6f0282db0606"
+                    "$oid": "62b33178fbcc6f0282db0606",
+                    "name" : "test"
                 },
                 "rating": 1,
                 "review": "aaaaaaaaaaaaaaa",
@@ -264,7 +265,8 @@
             },
             {
                 "reviewBy": {
-                    "$oid": "62c69fc002820c409dcce9ea"
+                    "$oid": "62c69fc002820c409dcce9ea",
+                    "name" : "pppppp"
                 },
                 "rating": 4,
                 "review": "i like it  a lot but a bit large for me for size L",
@@ -287,7 +289,8 @@
             },
             {
                 "reviewBy": {
-                    "$oid": "62a22b5cd0e120974f5c866e"
+                    "$oid": "62a22b5cd0e120974f5c866e",
+                    "name" : "pppppp"
                 },
                 "rating": 5,
                 "review": "amaaaaaaaaaaaaaaaaaaaaaaazing",
@@ -315,7 +318,8 @@
             },
             {
                 "reviewBy": {
-                    "$oid": "62a22d98d0e120974f5c8671"
+                    "$oid": "62a22d98d0e120974f5c8671",
+                    "name" : "pppppp"
                 },
                 "rating": 2.5,
                 "review": "aaaaaaaa",
@@ -338,7 +342,8 @@
             },
             {
                 "reviewBy": {
-                    "$oid": "62a2281cd0e120974f5c866c"
+                    "$oid": "62a2281cd0e120974f5c866c",
+                    "name" : "pppppp"
                 },
                 "rating": 5,
                 "review": "bbbbbbbbbbbbbb",
@@ -364,7 +369,8 @@
     },
     {
         "_id": {
-            "$oid": "6342c8ce3a608a950d7e8036"
+            "$oid": "6342c8ce3a608a950d7e8036",
+            "name" : "pppppp"
         },
         "name": "Men Drop Shoulder Metallic Tee",
         "description": "Men Drop Shoulder Metallic Tee",
@@ -814,7 +820,8 @@
         "reviews": [
             {
                 "reviewBy": {
-                    "$oid": "62b33178fbcc6f0282db0606"
+                    "$oid": "62b33178fbcc6f0282db0606",
+                    "name" : "test"
                 },
                 "rating": 1,
                 "review": "aaaaaaaaaaaaaaa",
