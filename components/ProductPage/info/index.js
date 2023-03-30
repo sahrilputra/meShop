@@ -9,6 +9,7 @@ import { TbMinus, TbPlus } from 'react-icons/tb'
 import { BsHeart, BsHandbagFill } from 'react-icons/bs'
 import Accordian from './Accordian'
 import SimillarSwiper from './SimilliarSwipper'
+import axios from 'axios'
 export const Infos = ({ product, setActiveImg }) => {
     const router = useRouter();
     const [size, setSize] = useState(router.query.size);
@@ -26,6 +27,14 @@ export const Infos = ({ product, setActiveImg }) => {
     }, [product.quantity, qty, router.query.size]);
 
 
+    const addToCartHandler = async () => {
+        const { data } = await axios.get(
+            `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`
+        )
+        console.log("data ========> ", data);
+    }
+
+
     return (
         <>
             <div className={styles.infos}>
@@ -41,7 +50,7 @@ export const Infos = ({ product, setActiveImg }) => {
                             style={{ color: "FACF19" }}
                         />
                         {product.numReviews}
-                        { 
+                        {
                             product.numReviews == 1 ? "review" : "reviews"
                         }
                     </div>
@@ -135,11 +144,12 @@ export const Infos = ({ product, setActiveImg }) => {
                         </button>
                     </div>
 
-                        <Accordian details={[product.description, ...product.details]}  />
+                    <Accordian details={[product.description, ...product.details]} />
                     <div className={styles.infos__actions}>
                         <button
                             disabled={product.quantity < 1}
                             style={{ curson: `${product.quantity < 1 ? "Tidak-dapat diproses" : ""}` }}
+                            onClick={() => addToCartHandler()}
                         >
                             <BsHandbagFill />
                             <b>ADD TO CART</b>
