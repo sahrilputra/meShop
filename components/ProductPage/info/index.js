@@ -19,7 +19,6 @@ export const Infos = ({ product, setActiveImg }) => {
     const [qty, setQty] = useState(1);
     const [error, setError] = useState("");
     const { cart } = useSelector((state) => ({ ...state }))
-    console.log("CART ==========> ", cart);
 
     useEffect(() => {
         setSize("");
@@ -71,7 +70,6 @@ export const Infos = ({ product, setActiveImg }) => {
                 ))
             }
         }
-        console.log("data ========> ", data);
     }
 
 

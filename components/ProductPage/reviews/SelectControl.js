@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styles from './styles.module.scss'
 import { IoArrowDown } from 'react-icons/io5'
 export const SelectControl = ({ property, text, data, handleChange }) => {
-    console.log(data);
+
 
     const [visible, setVisible] = useState(false);
     return (

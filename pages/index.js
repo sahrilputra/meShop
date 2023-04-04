@@ -23,9 +23,8 @@ import db from '../utils/db';
 
 
 export default function Home({ products }) {
-  console.log("products", products);
+ 
   const { data: session } = useSession()
-  console.log(session)
   const isMedium = useMediaQuery({ query: "(max-width:850px)" });
   const isMobile = useMediaQuery({ query: "(max-width:550px)" });
   return (

@@ -3,7 +3,6 @@ import styles from './styles.module.scss'
 import { Rating } from '@mui/material';
 import AiOutlineLike from 'react-icons/ai'
 export const Review = ({ review }) => {
-    console.log("reviews : ", review);
     // const {  image } = review.review;
     return (
         <>
