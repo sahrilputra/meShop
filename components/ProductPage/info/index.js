@@ -18,6 +18,7 @@ export const Infos = ({ product, setActiveImg }) => {
     const [size, setSize] = useState(router.query.size);
     const [qty, setQty] = useState(1);
     const [error, setError] = useState("");
+    
     const { cart } = useSelector((state) => ({ ...state }))
 
     useEffect(() => {
