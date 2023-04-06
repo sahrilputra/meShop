@@ -15,10 +15,8 @@ import {
 import {
     Infos
 } from '../../components/ProductPage/info'
-import { ReviewControl } from '../../components/ProductPage/reviews/reviewControl'
-export default function product({
-    product
-}) {
+import { ReviewControl } from '../../components/ProductPage/reviews/reviewControl';
+export default function product({ product }) {
 
     const [activeImg, setActiveImg] = useState("");
 

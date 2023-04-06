@@ -9,16 +9,24 @@ import { TbMinus, TbPlus } from 'react-icons/tb'
 import { BsHeart, BsHandbagFill } from 'react-icons/bs'
 import Accordian from './Accordian'
 import SimillarSwiper from './SimilliarSwipper'
-import { addToCart, updateCart } from '../../../store/cartSlice'
+
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
+import { addToCart, updateCart } from '../../../store/cartSlice'
+
+
 export const Infos = ({ product, setActiveImg }) => {
+
+
+    console.log("style +=================> ", product.style)
+
     const router = useRouter();
     const dispatch = useDispatch();
-    const [size, setSize] = useState(router.query.size);
+    const [size, setSize] = useState(router.query.sizes);
+
+    console.log("sizee ====== > ", size);
     const [qty, setQty] = useState(1);
     const [error, setError] = useState("");
-    
     const { cart } = useSelector((state) => ({ ...state }))
 
     useEffect(() => {
@@ -30,8 +38,7 @@ export const Infos = ({ product, setActiveImg }) => {
         if (qty > product.quantity) {
             setQty(product.quantity);
         }
-    }, [product.quantity, qty, router.query.size]);
-
+    }, [product.quantity, qty, router.query.sizes]);
 
     const addToCartHandler = async () => {
 
@@ -39,16 +46,17 @@ export const Infos = ({ product, setActiveImg }) => {
             setError('Pilih Ukuran terlebih dahulu');
             return;
         }
+
         const { data } = await axios.get(
             `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`
-        )
+        );
 
         if (qty > data.quantity) {
             setError("Product yang dipilih melebihi stock, kurangi beberapa item terlebih dahulu");
         } else if (data.quantity < 1) {
             setError("Procut ini kehabisan stock");
             return;
-        } else {
+        } else  {
             let _uid = `${data._id}_${product.style}_${router.query.size}`;
             console.log(_uid);
             let exist = cart.cartItems.find((p) => p._uid === _uid);
@@ -61,14 +69,13 @@ export const Infos = ({ product, setActiveImg }) => {
                 });
                 dispatch(updateCart(newCart));
             } else {
-                dispatch(addToCart(
-                    {
+                dispatch(addToCart({
                         ...data,
                         qty,
                         size: data.sizes,
                         _uid,
-                    }
-                ))
+                    })
+                )
             }
         }
     }
