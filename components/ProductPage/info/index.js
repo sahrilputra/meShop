@@ -10,6 +10,8 @@ import { BsHeart, BsHandbagFill } from 'react-icons/bs'
 import Accordian from './Accordian'
 import SimillarSwiper from './SimilliarSwipper'
 
+import {selectCart} from '../../../store/selector'
+
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, updateCart } from '../../../store/cartSlice'
@@ -22,12 +24,18 @@ export const Infos = ({ product, setActiveImg }) => {
 
     const router = useRouter();
     const dispatch = useDispatch();
-    const [size, setSize] = useState(router.query.sizes);
+    const [size, setSize] = useState(router.query.size);
+    
+    console.log("router query  ===== ", router.query.size );
 
     console.log("sizee ====== > ", size);
     const [qty, setQty] = useState(1);
     const [error, setError] = useState("");
-    const { cart } = useSelector((state) => ({ ...state }))
+
+
+    const  {cart} = useSelector((state) => ({ ...state }))
+
+    console.log("cart ======= > ", cart.cartItems);
 
     useEffect(() => {
         setSize("");
@@ -38,7 +46,7 @@ export const Infos = ({ product, setActiveImg }) => {
         if (qty > product.quantity) {
             setQty(product.quantity);
         }
-    }, [product.quantity, qty, router.query.sizes]);
+    }, [product.quantity, qty, router.query.size]);
 
     const addToCartHandler = async () => {
 
@@ -46,40 +54,53 @@ export const Infos = ({ product, setActiveImg }) => {
             setError('Pilih Ukuran terlebih dahulu');
             return;
         }
-
+        console.log("Mengirim data");
         const { data } = await axios.get(
             `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`
         );
+        
+        console.log("data ===========> ", data);
+        console.log("data telah diterima");
 
         if (qty > data.quantity) {
+            console.log("error melebihi stokc");
             setError("Product yang dipilih melebihi stock, kurangi beberapa item terlebih dahulu");
         } else if (data.quantity < 1) {
+            console.log("Erorr Kehabisan stock");
             setError("Procut ini kehabisan stock");
             return;
         } else  {
+            console.log("mencari data");
             let _uid = `${data._id}_${product.style}_${router.query.size}`;
             console.log(_uid);
-            let exist = cart.cartItems.find((p) => p._uid === _uid);
+            // let exist = cart.cartItems.find((p) => p._uid === _uid);
+           
+            let exist = (cart.cartItems && cart.cartItems.length > 0 && cart.cartItems.find((p) => p._uid === _uid));
+            console.log("exist ==========> ", exist );
+            // let exist = cart?.cartItems?.find((p) => p._uid === _uid);
             if (exist) {
+                console.log("Error data sama");
                 let newCart = cart.cartItems.map((p) => {
                     if (p._uid == exist._uid) {
+                        console.log("menambah data baru");
                         return { ...p, qty: qty };
                     }
                     return p;
                 });
                 dispatch(updateCart(newCart));
             } else {
+                console.log("alll ========================================");
+                console.log(data, "qty :", qty, "size :", data.size, "UID :", _uid);
                 dispatch(addToCart({
-                        ...data,
+                        data,
                         qty,
-                        size: data.sizes,
+                        size: data.size,
                         _uid,
                     })
                 )
             }
         }
     }
-
 
     return (
         <>
