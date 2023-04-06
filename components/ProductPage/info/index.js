@@ -90,9 +90,9 @@ export const Infos = ({ product, setActiveImg }) => {
                 dispatch(updateCart(newCart));
             } else {
                 console.log("alll ========================================");
-                console.log(data, "qty :", qty, "size :", data.size, "UID :", _uid);
+                console.log(...data, "qty :", qty, "size :", data.size, "UID :", _uid);
                 dispatch(addToCart({
-                        data,
+                        ...data,
                         qty,
                         size: data.size,
                         _uid,
