@@ -5,17 +5,19 @@ import { CartHead } from '../components/cart/cartHeader'
 import { Checkout } from '../components/cart/checkout'
 import React from 'react'
 import styles from '../styles/cart.module.scss'
-import { useDispatch,useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { ProductCart } from '../components/cart/products'
+import { useState } from 'react'
 
-export default function Cart ()  {
-  
-  const {cart} = useSelector((state) => ({...state}))
+export default function Cart() {
+  const [selected, setSelected] = useState([]);
+
+  const { cart } = useSelector((state) => ({ ...state }))
   const dispatch = useDispatch();
   const items = cart.cartItems;
-  
-  console.log(items);
+
+  console.log(selected);
   return (
     <div>
       <CartHeader />
@@ -24,23 +26,29 @@ export default function Cart ()  {
           items.length > 0 ? (
             <div className={styles.cart__container}>
               <CartHead
-              cartItems={items}
-              className={styles.cart__header}
+                cartItems={items}
+                selected={selected}
+                setSelected={setSelected}
               />
               <div className={styles.cart__products}>
                 {
                   items.map((product) => (
-                    
+
                     <>
-                    <ProductCart product={product} key={product._uid}/>
+                      <ProductCart
+                        product={product}
+                        key={product._uid}
+                        selected={selected}
+                        setSelected={setSelected}
+                      />
                     </>
                   ))
                 }
               </div>
-              <Checkout subTotal={"512"} 
-              shippingFee={""}
-              total={"2111"}
-              selected={[]}
+              <Checkout subTotal={"512"}
+                shippingFee={""}
+                total={"2111"}
+                selected={[]}
               />
             </div>
           ) : (

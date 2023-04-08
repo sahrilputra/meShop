@@ -6,10 +6,17 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { updateCart } from '../../../store/cartSlice';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 export const ProductCart = ({ product, selected, setSelected }) => {
-  
+
   const { cart } = useSelector((state) => ({ ...state }));
+  const [active, setActive] = useState();
+
+  useEffect(() => {
+    const check = selected.find((p) => p._uid == product._uid);
+    setActive(check);
+  }, [selected])
+
   const dispatch = useDispatch();
 
   const updateQty = (type) => {
@@ -31,9 +38,6 @@ export const ProductCart = ({ product, selected, setSelected }) => {
     });
     dispatch(updateCart(newCart));
   };
-  
-  const [active, setActive] = useState();
-
 
   const handleSelect = () => {
     if (active) {
@@ -41,7 +45,8 @@ export const ProductCart = ({ product, selected, setSelected }) => {
     } else {
       setSelected([...selected, product]);
     }
-  };
+  }
+
   return (
     <div className={`${styles.card} ${styles.product}`}>
       {product.quantity < 1 && <div className={styles.blur}></div>}
