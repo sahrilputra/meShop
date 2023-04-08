@@ -70,10 +70,7 @@ export default NextAuth({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET
     }),
-    InstagramProvider({
-      clientId: process.env.INSTAGRAM_ID,
-      clientSecret: process.env.INSTAGRAM_SECRET
-    }),
+
   ],
   callbacks: {
     async session({ session, token }) {
