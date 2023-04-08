@@ -8,6 +8,7 @@ import { updateCart } from '../../../store/cartSlice';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 export const ProductCart = ({ product, selected, setSelected }) => {
+  
   const { cart } = useSelector((state) => ({ ...state }));
   const dispatch = useDispatch();
 

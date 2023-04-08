@@ -1,0 +1,12 @@
+@import "../base";
+
+.flex {
+    gap: 10px;
+    cursor: pointer;
+
+    &:hover {
+        .checkbox {
+            border-color: $blue-color;
+        }
+    }
+}
