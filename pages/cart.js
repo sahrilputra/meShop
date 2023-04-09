@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { ProductCart } from '../components/cart/products'
 import { useState } from 'react'
+import { useEffect } from 'react'
+import { PaymentMethods } from '../components/cart/PaymentMethod'
 
 export default function Cart() {
   const [selected, setSelected] = useState([]);
@@ -17,6 +19,14 @@ export default function Cart() {
   const dispatch = useDispatch();
   const items = cart.cartItems;
 
+  const [shippingFee, setShippingFee] = useState(0);
+  const [subTotal, setSubtotal] = useState(0);
+  const [total, setTotal] = useState(0);
+  useEffect(() => {
+    setShippingFee(selected.reduce((a, c) => a + Number(c.shipping), 0).toFixed(2))
+    setSubtotal(selected.reduce((a, c) => a + c.price * c.qty, 0).toFixed(2))
+    setTotal((selected.reduce((a, c) => a + c.price * c.qty, 0) + Number(shippingFee)).toFixed(2))
+  }, [selected]);
   console.log(selected);
   return (
     <div>
@@ -45,11 +55,13 @@ export default function Cart() {
                   ))
                 }
               </div>
-              <Checkout subTotal={"512"}
-                shippingFee={""}
-                total={"2111"}
-                selected={[]}
+              <Checkout
+                subTotal={subTotal}
+                shippingFee={shippingFee}
+                total={total}
+                selected={selected}
               />
+              <PaymentMethods />
             </div>
           ) : (
             <EmptyComponent />

@@ -7,10 +7,10 @@ export const Checkout = ({ subTotal, shippingFee, total, selected }) => {
                 <h2>Pesanan Anda</h2>
                 <div className={styles.cart__checkout_line}>
                     <span>Subtotal</span>
-                    <span>USD${subTotal}</span>
+                    <span>US${subTotal}</span>
                 </div>
                 <div className={styles.cart__checkout_line}>
-                    <span>Pengiriman</span>
+                    <span>Biaya Pengiriman</span>
                     <span>+{shippingFee}</span>
                 </div>
                 <div className={styles.cart__checkout_total}>
@@ -25,7 +25,7 @@ export const Checkout = ({ subTotal, shippingFee, total, selected }) => {
                             cursor: `${selected.length == 0 ? "not-allowed" : ""}`,
                         }}
                     >
-                        Continue
+                        Lanjut
                     </button>
                 </div>
             </div>

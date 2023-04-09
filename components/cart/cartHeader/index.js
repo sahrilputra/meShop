@@ -17,12 +17,12 @@ export const CartHead = ({ cartItems, selected, setSelected }) => {
     };
     return (
         <div className={`${styles.cart__header} ${styles.card}`}>
-            <h1>Item Summary({cartItems.length})</h1>
+            <h1>Ringkasan Barang({cartItems.length})</h1>
             <div className={styles.flex} onClick={() => handleSelect()}>
                 <div
                     className={`${styles.checkbox} ${active ? styles.active : ""}`}
                 ></div>
-                <span>Select all items</span>
+                <span>Pilih semua item</span>
             </div>
         </div>
     )
