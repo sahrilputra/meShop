@@ -13,6 +13,7 @@ import { useEffect } from 'react'
 import { PaymentMethods } from '../components/cart/PaymentMethod'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router';
+import { saveCart } from '../request/user'
 export default function Cart() {
   const Router = useRouter();
   const { data: session } = useSession();
