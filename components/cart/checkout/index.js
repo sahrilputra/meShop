@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 
-export const Checkout = ({ subTotal, shippingFee, total, selected }) => {
+export const Checkout = ({ subTotal, shippingFee, total, selected, saveCartToDbHandler }) => {
     return (
         <>
             <div className={`${styles.cart__header} ${styles.card}`}>
@@ -24,6 +24,7 @@ export const Checkout = ({ subTotal, shippingFee, total, selected }) => {
                             background: `${selected.length == 0 ? "#eee" : ""}`,
                             cursor: `${selected.length == 0 ? "not-allowed" : ""}`,
                         }}
+                        onClick={() => saveCartToDbHandler()}
                     >
                         Lanjut
                     </button>

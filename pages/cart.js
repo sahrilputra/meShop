@@ -11,10 +11,13 @@ import { ProductCart } from '../components/cart/products'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { PaymentMethods } from '../components/cart/PaymentMethod'
-
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/router';
 export default function Cart() {
+  const Router = useRouter();
+  const { data: session } = useSession();
   const [selected, setSelected] = useState([]);
-
+  console.log(session);
   const { cart } = useSelector((state) => ({ ...state }))
   const dispatch = useDispatch();
   const items = cart.cartItems;
@@ -27,6 +30,16 @@ export default function Cart() {
     setSubtotal(selected.reduce((a, c) => a + c.price * c.qty, 0).toFixed(2))
     setTotal((selected.reduce((a, c) => a + c.price * c.qty, 0) + Number(shippingFee)).toFixed(2))
   }, [selected]);
+
+  const saveCartToDbHandler = async () => {
+    const res = saveCart(selected, session.user.id);
+    Router.push("/checkout")
+    if (session) {
+
+    } else {
+      signIn();
+    }
+  }
   console.log(selected);
   return (
     <div>
@@ -60,6 +73,7 @@ export default function Cart() {
                 shippingFee={shippingFee}
                 total={total}
                 selected={selected}
+                saveCartToDbHandler={saveCartToDbHandler}
               />
               <PaymentMethods />
             </div>
